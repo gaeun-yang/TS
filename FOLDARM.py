@@ -1,9 +1,9 @@
 import socket
 
-HOST = '192.168.1.113'  
+HOST = '100.100.100.100'  
 PORT = 60000 
 
-TSM_ID = "0010"  
+TSM_ID = "001"  
 FOLDARM_CMD = "FOLDARM"  
 END_MARK = "#"  
 BUFFER_SIZE = 1024  
@@ -33,5 +33,7 @@ def fold_arm():
         print("Connection reset by server.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+fold_arm
 
 fold_arm()
