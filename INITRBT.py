@@ -1,9 +1,9 @@
 import socket
 
-HOST = '192.168.1.113'  
+HOST = '100.100.100.100'  
 PORT = 60000  
 
-TSM_ID = "0010"  
+TSM_ID = "001"  
 INITRBT_CMD = "INITRBT"  
 END_MARK = "#"  
 BUFFER_SIZE = 1024  
