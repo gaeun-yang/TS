@@ -1,7 +1,7 @@
 import socket
 import time
 
-HOST = '192.168.1.113'
+HOST = '100.100.100.100'
 PORT = 60000
 
 def connect_to_robot():
