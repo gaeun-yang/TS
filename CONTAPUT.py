@@ -23,7 +23,7 @@ def main():
     port = 60000             
 
     tsm_id = "001"
-    dstid = "CM2"
+    dstid = "CM1"
     slot = "1"
     arm = "0"
     size = "310"
