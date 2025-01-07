@@ -6,7 +6,7 @@ BUFFER_SIZE = 1024
 
 TSM_ID = "001"
 CMD = "CONTAGET"
-DSTID = "CM1"    
+DSTID = "PM1"    
 SLOT = 1         
 ARM = 0          
 SIZE = 310       
