@@ -10,8 +10,9 @@ def send_tcp_message(host, port, message):
             
             response = s.recv(1024).decode()
             
-            if response.startswith("READY"):
-               response = response[5:] 
+            if "READY" in response:
+                filtered_response = response.split("READY", 1)[-1].strip()  
+                print(f"Received (filtered): {filtered_response}") 
             
             print(f"Received: {response}")
             s.close()
