@@ -5,17 +5,19 @@ def send_tcp_message(host, port, message):
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((host, port))
+            response = s.recv(1024).decode()
+            print(f"Received: {response}")
+            if response.filter("READY"):
+              print(f"Response: {response}")
+
             s.sendall(message.encode())
             print(f"Sent: {message}")
-            
+
             response = s.recv(1024).decode()
-            
-            if "READY" in response:
-                filtered_response = response.split("READY", 1)[-1].strip()  
-                print(f"Received (filtered): {filtered_response}") 
-            
             print(f"Received: {response}")
+
             s.close()
+            
     except Exception as e:
         print(f"Error in sending message: {e}")
 
