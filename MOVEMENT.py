@@ -5,24 +5,22 @@ def send_tcp_message(host, port, message):
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((host, port))
-            response = s.recv(1024).decode()
-            print(f"Received: {response}")
-            if response.("READY"):
-              print(f"Response filterd: {"READY","response}")
-            else:
-              print(f"Response: {response}")
         
-            s.sendall(message.encode())
-            print(f"Sent: {message}")
-
+            initial_response = s.recv(1024).decode()
+            if initial_response.startswith("READY"):
+                pass
+            
             response = s.recv(1024).decode()
-            print(f"Received: {response}")
+            print(f"Filtered Response: {response}")
 
-            s.close()
+    except Exception as e:
+        print(f"An error occurred: {e}")
             
     except Exception as e:
         print(f"Error in sending message: {e}")
 
+        s.close()
+        
 def get_slot1_from_cm1(host, port):
     message = "FDC CM1_SLOT1_GET#"
     send_tcp_message(host, port, message)
