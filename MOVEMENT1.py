@@ -43,6 +43,19 @@ def send_command(command: str) -> str:
         print(f"Communication error: {e}")
         return "ERROR"
 
+    def process_response(response: str):
+
+    if response.startswith("0010 P"):
+        print("Command executed successfully.")
+    elif response.startswith("0010 E"):
+        print("Error occurred during execution.")
+    elif response.startswith("0010 U"):
+        print("Device error or issue.")
+    elif response.startswith("0010 R"):
+        print("Robot returned to home position.")
+    else:
+        print(f"Unexpected response: {response}")
+
 def main():
 
     send_init_rbt_command()
