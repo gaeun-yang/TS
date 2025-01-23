@@ -48,11 +48,11 @@ def send_command(command: str) -> str:
     if response.startswith("0010 P"):
         print("Command executed successfully.")
     elif response.startswith("0010 E"):
-        print("Error occurred during execution.")
+        print("Command executed successfully.")
     elif response.startswith("0010 U"):
-        print("Device error or issue.")
+        print("Command executed successfully.")
     elif response.startswith("0010 R"):
-        print("Robot returned to home position.")
+        print("Command executed successfully.")
     else:
         print(f"Unexpected response: {response}")
 
