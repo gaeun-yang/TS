@@ -33,6 +33,16 @@ def send_command(command: str) -> str:
             data = client_socket.recv(BUFFER_SIZE)
             response = data.decode('utf-8').strip()
             return response
+
+    def send_tcp_message(s, message):
+    try:
+        s.sendall(message.encode())
+        print(f"Sent: {message}")
+        response = s.recv(1024).decode()
+        print(f"Received: {response.strip()}")
+
+    except Exception as e:
+        print(f"Error in sending message: {e}")
     except socket.timeout:
         print("Error: Connection timed out.")
         return "TIMEOUT"
